@@ -1,14 +1,22 @@
 import Container from './components/Container';
+import dados from "./products.json"
+console.log(dados)
+
 
 const Item = ({ item }) => {
   return (
     <li className='item' data-testid='product-item'>
-      { /* TODO */ }
-      <img src="thumbnail here"></img>
-      <h4> title here </h4>
-      <p> description here </p>
-      <span> brand here </span>
-      <span> price here </span>
+      {dados.map(item => (
+        <>
+        <img key={item.id} src={item.thumbnail}/>
+        <h4> {item.title} </h4>
+        <p> {item.description} </p>
+        <span> {item.brand} </span>
+        <span> {item.price} </span>
+        </>
+      ))}
+
+
     </li>
   )
 }
@@ -17,7 +25,7 @@ function App() {
   return (
     <Container>
       <ul className='list' data-testid='product-list'>
-        { /* TODO */ }
+        { /* TODO */}
         <Item />
       </ul>
     </Container>
